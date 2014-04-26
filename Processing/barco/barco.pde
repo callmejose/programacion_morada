@@ -2,7 +2,7 @@
 float yoff = 0.0;
 float xoff = 10.0;
 int numbarcos = 1;
-int[] xbarcos = {0,0,0,0,0,0};
+int[] xbarcos = new int[10];
 int sealevel;
 
 void setup() {
@@ -37,6 +37,8 @@ void pintarBarco(int x,int y) {
 }
 
 void mousePressed(){
-  xbarcos[numbarcos] = mouseX;
-  numbarcos++;
+  if (numbarcos < 10){
+    xbarcos[numbarcos] = mouseX;
+    numbarcos++;
+  }
 }
