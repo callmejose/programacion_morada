@@ -12,5 +12,14 @@ void mousePressed() {
   int verde = int(random(255));
   int azul = int(random(255));
   background(rojo,verde,azul);
-  ellipse(x,y, 80,80);
+  if(y>300){
+    for(int i=1; i<6 ; i++){
+      ellipse(x,y, 110-i*10,110-i*10);
+    }
+  } else{
+    rectMode(CENTER);
+    for(int i=1; i<6 ; i++){
+      rect(x,y, 110-i*10,110-i*10);
+    }
+  }
 }
