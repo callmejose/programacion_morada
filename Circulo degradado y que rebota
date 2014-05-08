@@ -1,0 +1,44 @@
+void setup() {
+  size(800, 600);
+  fill(255);
+}
+int x = 0;
+int y = 0;
+int vx = 1;
+int vy = 1;
+
+int rojo;
+int verde;
+int azul;
+
+void draw() {
+
+  x = x + vx;
+  y = y + vy;
+  if ( (y < 0) || (y >600) ) {
+    for (float sk=0;sk<5;sk=sk+0.5) {
+      rojo = int(random(255));
+      verde = int(random(255));
+      azul = int(random(255));
+
+      fill(rojo+sk*10, verde+sk*10, azul+sk*10);
+    }
+
+    vy = -vy;
+  }
+  if ((x < 0) || (x > 800)) {
+    for (float sk=0;sk<5;sk=sk+0.5) {
+      rojo = int(random(255));
+      verde = int(random(255));
+      azul = int(random(255));
+
+      fill(rojo+sk*10, verde+sk*10, azul+sk*10);
+    }
+
+    vx = -vx;
+  }
+  for (float sk=0;sk<5;sk=sk+0.5) {
+    ellipse(x, y, 100-sk*20, 100-sk*20);
+    fill(rojo+sk*40, verde+sk*40, azul+sk*40);
+  }
+}
