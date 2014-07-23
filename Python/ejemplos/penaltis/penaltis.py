@@ -8,10 +8,10 @@ while ganador == -1: #mientras nadie gane o la serie no termine
         gol = input("\nmetio gol el equipo 0? ")
         if gol == "si":
             goles0 += 1 #si hubo gol incremento los goles del equipo respectivo
-        faltantes0 -= 1 #meta o no gol le disminuyo a los tires faltantes
-        if goles1 + faltantes1 < goles0: #si se cumple esto ya gané
+        faltantes0 -= 1 #meta o no gol le disminuyo a los tiros faltantes
+        if goles1 + faltantes1 < goles0: #si se cumple esto ya gano el equipo0
             ganador = 0
-        turno = 1 #en la siguiente iteración le toca al equipo0
+        turno = 1 #en la siguiente iteración le toca al equipo1
     else: #en este else se hace algo equivalente pero para el equipo1
         gol = input("metio gol el equipo 1? ")
         if gol == "si":
