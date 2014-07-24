@@ -29,3 +29,13 @@ setup.py se encuentre ahora dentro de la carpeta
 9. ejecute el comando siguiente para instalar easygui:
 >>python C:\easygui\setup.py install
 
+10. si la instalación se realiza correctamente esto significa que ahora sí podremos 
+ejecutar nuestros códigos, es recomendable hacer esto siempre desde el powershell:
+>>python C:\ruta_a_mis_codigos\mi_codigo.py
+
+11. en vez de hacer el paso 10, es más cómodo primero mover el powershell hasta mi
+carpeta de códigos mediante:
+>>cd C:\ruta_a_mis_codigos
+y luego ejecutar el algoritmo:
+>>python mi_código.py
+
