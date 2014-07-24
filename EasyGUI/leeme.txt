@@ -1,0 +1,31 @@
+antes de ejecutar los códigos de esta carpeta se debe instalar easygui 0.96
+para lograrlo haga lo siguiente desde un sistema operativo windows (7/8):
+
+1. asegurese de tener instalada la ultima version de python 3.x (actualmente 3.4.1)
+puede descaargarla de <www.python.org/download/>
+
+2. abra el powershell de winwdos desde el menú inicio
+
+3. ejecute el comando >>python, si se ejecuta correctamente vaya al paso 6
+
+4. si el anterior comando arroja error (el termino no se reconoce) entonces se debe
+añadir la carpeta de python al path mediante el siguiente comando, cambie la ruta de
+la carpeta a python ("C:\Python34") de ser necesario
+>>[Environment]::SetEnvironmentVariable("Path", "$env:Path;C:\Python34", "User")
+
+5. cierre y abra nuevamente el powershell, luego ejecute nuevamente el comando 
+>>python
+
+6. salga del interprete de comandos de python mediante Ctrl+C o llamando a la 
+función "exit()"
+
+7. descargue "easygui-0.96.zip" este puede ser descargado desde el repositorio o
+desde <http://sourceforge.net/projects/easygui/files/0.96/>
+
+8. copie el archivo descargado a la carpeta "C:\easygui", y mediante su descompresor
+favorito (7-zip, winrar, etc) descomprimalo en esa ubicación, verifique que el archivo
+setup.py se encuentre ahora dentro de la carpeta
+
+9. ejecute el comando siguiente para instalar easygui:
+>>python C:\easygui\setup.py install
+
