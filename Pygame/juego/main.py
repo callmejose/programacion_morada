@@ -14,9 +14,11 @@ ROJO = [ 255, 0, 0]
 
 # Inicializa el motor de juegos
 pygame.init()
-h=32*20
-g=32*16
-dimensiones = [h, g]
+ancho = 20
+alto = 16
+ancho_pixeles = 32 * ancho
+alto_pixeles = 32 * alto
+dimensiones = [ancho_pixeles, alto_pixeles]
 # Abrir la pantalla (otra opción es open_window)
 pantalla = pygame.display.set_mode(dimensiones)
 
@@ -27,7 +29,7 @@ pygame.mouse.set_visible(False)
 #Itera hasta que el usuario pincha sobre el botón de cierre.
 hecho = False
 
-# Se usa para gestionar cuan rápido se actualiza la pantalla
+# Se usa para gestionar cuán rápido se actualiza la pantalla
 reloj = pygame.time.Clock()
 y = -128
 x = -128
@@ -70,17 +72,10 @@ pasto = hoja_completa.get_image(14, 1, 32, 32)
 agua = hoja_completa.get_image(13, 7, 32, 32)
 sombra_agua = hoja_completa.get_image(14, 7, 32, 32)
 
-def dibujar_fondo():
-    pantalla.blit(pasto, [0*32, 0*32])
-    pantalla.blit(pasto, [1*32, 0*32])
-    pantalla.blit(pasto, [0*32, 1*32])
-    pantalla.blit(pasto, [1*32, 1*32])
-    pantalla.blit(pasto, [1*32, 2*32])
-    pantalla.blit(pasto, [2*32, 2*32])
-    pantalla.blit(pasto, [1*32, 3*32])
-    pantalla.blit(pasto, [2*32, 3*32])
-    pantalla.blit(agua, [3*32, 0*32])
-    pantalla.blit(sombra_agua, [3*32, 0*32])
+def llenar_fondo(fondo):
+    for cuadro_x in range(ancho):
+        for cuadro_y in range(alto):
+            pantalla.blit(fondo, [cuadro_x * 32, cuadro_y * 32])
         
 # -------- Bucle Principal del Programa -----------
 while not hecho:
@@ -92,7 +87,6 @@ while not hecho:
             pass
         if evento.type==pygame.KEYDOWN:
             if evento.key==pygame.K_UP:
-                
                 velocidad_y=-2
             if evento.key==pygame.K_DOWN:
                 velocidad_y=2
@@ -130,7 +124,7 @@ while not hecho:
     # Primero limpiamos pantalla. No dibujes por encima de esta linea
     # o todo lo que escribas sera borrado por este comando.
     pantalla.fill(BLANCO)
-    dibujar_fondo()
+    llenar_fondo(pasto)
     # pantalla.blit(pasto, [x, y])
     pantalla.blit(principal, [xm, ym])
     
