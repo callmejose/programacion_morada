@@ -1,0 +1,3 @@
+-agrege al PATH la carpeta de instalación de python
+-instale pytmx mediante pip escribiendo:
+>>python -m pip install pytmx

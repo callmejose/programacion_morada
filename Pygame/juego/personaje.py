@@ -3,6 +3,7 @@
 
 # Importa la librería de funciones llamada 'pygame'
 import pygame
+import pytmx
 
 # Definimos algunos colores
 NEGRO = [ 0, 0, 0]
@@ -14,8 +15,8 @@ ROJO = [ 255, 0, 0]
 
 # Inicializa el motor de juegos
 pygame.init()
-h=32*20
-g=32*16
+h=32*6
+g=32*6
 dimensiones = [h, g]
 # Abrir la pantalla (otra opción es open_window)
 pantalla = pygame.display.set_mode(dimensiones)

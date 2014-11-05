@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="left-down" width="40" height="22" tilewidth="32" tileheight="32">
+ <tileset firstgid="1" name="completa32" tilewidth="32" tileheight="32">
+  <image source="imagenes/completa32.png" width="512" height="512"/>
+ </tileset>
+ <layer name="agua" width="40" height="22">
+  <data encoding="base64" compression="zlib">
+   eJztzrEJAEAIBMGr3NptwODBRPgZ2HwrSQ1dMb35e+dv5/ofAAB/aVupEbk=
+  </data>
+ </layer>
+ <layer name="sombra_agua" width="40" height="22">
+  <data encoding="base64" compression="zlib">
+   eJzt0kEKACAMA8H83DxdQQpFvbfCDgTpbQ9a0ljz8XbxanNdzsXaTbG4u8hNubEL66//FwMAAAAqTN4PEe4=
+  </data>
+ </layer>
+ <layer name="pasto" width="40" height="22">
+  <data encoding="base64" compression="zlib">
+   eJztzkENAAAMg8A6mX+XM1ABLOMS/kySKVG0N/IfzaU/IvqfJEmSfllAaQMn
+  </data>
+ </layer>
+ <layer name="grama" width="40" height="22">
+  <data encoding="base64" compression="zlib">
+   eJztzqERACAMALGOwgbt/tMhQNcgqEju3n8Gr/L3QGPF7L+K8zhV3QAAYIINB9gBXg==
+  </data>
+ </layer>
+ <layer name="borde" width="40" height="22">
+  <data encoding="base64" compression="zlib">
+   eJzt0LENADAIA0GmzQYwfxpqKDHiT3L/stkunlP0pgMaMR1QUP9OvQ8AAAA3fBktApM=
+  </data>
+ </layer>
+ <layer name="tronco" width="40" height="22">
+  <data encoding="base64" compression="zlib">
+   eJzt0DENAAAIBLG3h39DSGBgICGtgsslbNV1wAMeAgDArAHQbgCT
+  </data>
+ </layer>
+ <layer name="personaje" width="40" height="22">
+  <data encoding="base64" compression="zlib">
+   eJztwQENAAAAwqD3T20ON6AAAAB4MA3AAAE=
+  </data>
+ </layer>
+ <layer name="copa" width="40" height="22">
+  <data encoding="base64" compression="zlib">
+   eJzt0AkNAAAIxLCzhX9jyOBJq2BZsl9NBzzgIQAA3NecXwBz
+  </data>
+ </layer>
+ <layer name="risco" width="40" height="22">
+  <data encoding="base64" compression="zlib">
+   eJztwzENAAAIA7DJxb8Cjn0o4GiTJjUnAAAAvyxQSgGh
+  </data>
+ </layer>
+ <layer name="puerta" width="40" height="22">
+  <data encoding="base64" compression="zlib">
+   eJztwTEBAAAIwKD1tH8PTyt4AHUmAAAAvlrs+ABc
+  </data>
+ </layer>
+</map>

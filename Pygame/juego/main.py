@@ -3,6 +3,7 @@
 
 # Importa la librería de funciones llamada 'pygame'
 import pygame
+import pytmx
 
 # Definimos algunos colores
 NEGRO = [ 0, 0, 0]
@@ -14,8 +15,8 @@ ROJO = [ 255, 0, 0]
 
 # Inicializa el motor de juegos
 pygame.init()
-ancho = 20
-alto = 16
+ancho = 6
+alto = 6
 ancho_pixeles = 32 * ancho
 alto_pixeles = 32 * alto
 dimensiones = [ancho_pixeles, alto_pixeles]
@@ -67,6 +68,8 @@ class SpriteSheet(object):
         
 hoja_completa = SpriteSheet("./imagenes/completa32.png")
 
+tmxdata = pytmx.load_pygame("plantilla.tmx")
+
 principal = hoja_completa.get_image(1, 8, 32, 32)
 pasto = hoja_completa.get_image(14, 1, 32, 32)
 agua = hoja_completa.get_image(13, 7, 32, 32)
@@ -76,6 +79,15 @@ def llenar_fondo(fondo):
     for cuadro_x in range(ancho):
         for cuadro_y in range(alto):
             pantalla.blit(fondo, [cuadro_x * 32, cuadro_y * 32])
+
+def pintar_mapa(tmxdata,pantalla):
+    for capa in range(10):
+        for x in range(6):
+            for y in range(6):
+                imagen = tmxdata.get_tile_image(x, y, capa)
+                if imagen==None:
+                    continue
+                pantalla.blit(imagen, [x*32 , y*32])
         
 # -------- Bucle Principal del Programa -----------
 while not hecho:
@@ -94,6 +106,8 @@ while not hecho:
                 velocidad_x=2
             if evento.key==pygame.K_LEFT:
                 velocidad_x=-2
+            if evento.key==pygame.K_SPACE:
+                print(tmxdata)
         if evento.type==pygame.KEYUP:
             if evento.key==pygame.K_UP:
                 velocidad_y=0
@@ -124,7 +138,8 @@ while not hecho:
     # Primero limpiamos pantalla. No dibujes por encima de esta linea
     # o todo lo que escribas sera borrado por este comando.
     pantalla.fill(BLANCO)
-    llenar_fondo(pasto)
+    pintar_mapa(tmxdata,pantalla)
+    #llenar_fondo(pasto)
     # pantalla.blit(pasto, [x, y])
     pantalla.blit(principal, [xm, ym])
     
