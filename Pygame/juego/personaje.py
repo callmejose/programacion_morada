@@ -3,7 +3,7 @@
 
 # Importa la librería de funciones llamada 'pygame'
 import pygame
-import pytmx
+import pytmx 
 
 # Definimos algunos colores
 NEGRO = [ 0, 0, 0]
@@ -15,9 +15,11 @@ ROJO = [ 255, 0, 0]
 
 # Inicializa el motor de juegos
 pygame.init()
-h=32*6
-g=32*6
-dimensiones = [h, g]
+ancho = 40
+alto = 22
+ancho_pixeles = 32 * ancho
+alto_pixeles = 32 * alto
+dimensiones = [ancho_pixeles, alto_pixeles]
 # Abrir la pantalla (otra opción es open_window)
 pantalla = pygame.display.set_mode(dimensiones)
 
@@ -27,20 +29,10 @@ pygame.display.set_caption("Mi primer juego")
 pygame.mouse.set_visible(False)
 #Itera hasta que el usuario pincha sobre el botón de cierre.
 hecho = False
+informacion = False
 
 # Se usa para gestionar cuan rápido se actualiza la pantalla
 reloj = pygame.time.Clock()
-y = 0
-x = 0
-velocidad_x=0
-velocidad_y=0
-
-def hacelo(que,mix,miy):
-    pantalla.blit(que, [mix*32,miy*32])
-def todo(pintura,x,y,baja,lado):
-    for w in range(baja):
-        for s in range(lado):
-            hacelo(pintura,(x+s)*2,(y+w)*2)
 
 class SpriteSheet(object):
     """ Clase usada para sacar imágenes de la hoja de sprites."""
@@ -72,26 +64,24 @@ class SpriteSheet(object):
         # Retorna la imagen
         return imagen
         
-hoja_completa = SpriteSheet("./imagenes/completa32.png")         
-pasto = hoja_completa.get_image(14, 1, 32, 32)
-agua = hoja_completa.get_image(13, 7, 32, 32)
-sombra_agua = hoja_completa.get_image(14, 7, 32, 32)
+hoja_completa = SpriteSheet("./imagenes/completa32.png")
+tmxdata = pytmx.load_pygame("./plantilla.tmx")        
 
 class mapa(object):
     """en esta clase se definira el mapa"""
     
     xmin = 0
-    xmax = 32*20
+    xmax = 32*ancho
     ymin = 0
-    ymax = 32*16
+    ymax = 32*alto
 
 class personaje(object):
     """este es tu personaje
     le puedes dar atributos"""
     
     direccion=""
-    x = 0
-    y = 0
+    x = ancho*16
+    y = alto*16
     velocidad_x = 0
     velocidad_y = 0
     
@@ -141,18 +131,94 @@ class personaje(object):
         and self.x + self.velocidad_x + 16 <= mapa.xmax 
         and self.y + self.velocidad_y >= mapa.ymin 
         and self.y + self.velocidad_y + 16 <= mapa.ymax): #dentro del mapa
-            self.x += self.velocidad_x
-            self.y += self.velocidad_y
-        #else:
-        #    if self.x < mapa.xmin
+            imagen = tmxdata.get_tile_image((self.x+self.velocidad_x)//32, (self.y+self.velocidad_y)//32, 0)
+            if imagen==None:
+                self.x += self.velocidad_x
+                self.y += self.velocidad_y
 
     def pintese(self, ventana):
         ventana.blit(self.imagen_actual, [(self.x//32)*32, (self.y//32)*32]) #solo se pinta centrado en los cuadros, múltiplos de 32
+        
+    def cambiar_apariencia(self, disfraz):
+        if disfraz == "niño":
+            self.adelante = hoja_completa.get_image(0, 8, 32, 32)
+            self.derecha = hoja_completa.get_image(0,10,32,32)
+            self.izquierda = hoja_completa.get_image(0,9,32,32)
+            self.atras = hoja_completa.get_image(0,11,32,32)
+        elif disfraz == "esqueleto":
+            self.adelante = hoja_completa.get_image(6, 8, 32, 32)
+            self.derecha = hoja_completa.get_image(6,10,32,32)
+            self.izquierda = hoja_completa.get_image(6,9,32,32)
+            self.atras = hoja_completa.get_image(6,11,32,32)
+        elif disfraz == "baba":
+            self.adelante = hoja_completa.get_image(0, 12, 32, 32)
+            self.derecha = hoja_completa.get_image(0,14,32,32)
+            self.izquierda = hoja_completa.get_image(0,13,32,32)
+            self.atras = hoja_completa.get_image(0,15,32,32)
+        elif disfraz == "murcielago":
+            self.adelante = hoja_completa.get_image(3, 12, 32, 32)
+            self.derecha = hoja_completa.get_image(3,14,32,32)
+            self.izquierda = hoja_completa.get_image(3,13,32,32)
+            self.atras = hoja_completa.get_image(3,15,32,32)
+        elif disfraz == "fantasma":
+            self.adelante = hoja_completa.get_image(6, 12, 32, 32)
+            self.derecha = hoja_completa.get_image(6,14,32,32)
+            self.izquierda = hoja_completa.get_image(6,13,32,32)
+            self.atras = hoja_completa.get_image(6,15,32,32)
+        elif disfraz == "araña":
+            self.adelante = hoja_completa.get_image(12, 12, 32, 32)
+            self.derecha = hoja_completa.get_image(12,14,32,32)
+            self.izquierda = hoja_completa.get_image(12,13,32,32)
+            self.atras = hoja_completa.get_image(12,15,32,32)
+        else:
+            self.adelante = hoja_completa.get_image(3, 8, 32, 32)
+            self.derecha = hoja_completa.get_image(3,10,32,32)
+            self.izquierda = hoja_completa.get_image(3,9,32,32)
+            self.atras = hoja_completa.get_image(3,11,32,32)
             
 violeta = personaje()
 
-zona_verde = mapa()
+monstruo1 = personaje()
+monstruo1.cambiar_apariencia("esqueleto")
+monstruo1.cambiar_velocidad("adelante", 5)
 
+monstruo2 = personaje()
+monstruo2.cambiar_apariencia("baba")
+monstruo2.cambiar_velocidad("derecha", 5)
+
+monstruo3 = personaje()
+monstruo3.cambiar_apariencia("murcielago")
+monstruo3.cambiar_velocidad("izquierda", 5)
+
+monstruo4 = personaje()
+monstruo4.cambiar_apariencia("fantasma")
+monstruo4.cambiar_velocidad("atras", 5)
+
+personajes = [violeta, monstruo1, monstruo2, monstruo3, monstruo4]
+
+entrada_cueva = mapa()
+
+def pintar_mapa(tmxdata,pantalla):
+    for capa in range(15):
+        if capa == 9:
+            for personaje in personajes:
+                personaje.pintese(pantalla)
+        else:
+            for x in range(ancho):
+                for y in range(alto):
+                    imagen = tmxdata.get_tile_image(x, y, capa)
+                    if imagen==None:
+                        continue
+                    pantalla.blit(imagen, [x*32 , y*32])
+
+def pintar_texto():
+    # Seleccionamos la fuente, tamaño, negrita, acostada
+    fuente = pygame.font.SysFont('Calibri', 25, True, False) 
+    # Rendirazar, mi texto, suavizado, color
+    texto = fuente.render(str(violeta.x) + "   " + str(violeta.y), True, NEGRO) 
+    # Poner en pantalla el texto
+    pantalla.blit(texto, [0,0])
+    
 # -------- Bucle Principal del Programa -----------
 while not hecho:
     # TODOS LOS EVENTOS DE PROCESAMIENTO DEBERÍAN IR DEBAJO DE ESTE COMENTARIO
@@ -170,6 +236,8 @@ while not hecho:
                 violeta.cambiar_velocidad("derecha", 5)
             if evento.key==pygame.K_LEFT:
                 violeta.cambiar_velocidad("izquierda", 5)
+            if evento.key==pygame.K_F3:
+                informacion = not informacion
         if evento.type==pygame.KEYUP:
             if evento.key==pygame.K_UP:
                 violeta.pare("atras")
@@ -184,14 +252,11 @@ while not hecho:
     
     
     # TODA LA LÓGICA DEL JUEGO DEBERÍA IR DEBAJO DE ESTE COMENTARIO
-
-    violeta.muevase(zona_verde)
+    for personaje in personajes:
+        personaje.muevase(entrada_cueva)
     
     # TODA LA LÓGICA DEL JUEGO DEBERÍA IR ENCIMA DE ESTE COMENTARIO
 
-    pos = pygame.mouse.get_pos()
-    xm = pos[0]
-    ym = pos[1]
     
     # TODO EL CÓDIGO DE DIBUJO DEBERÍA IR DEBAJO DE ESTE COMENTARIO
    
@@ -199,25 +264,17 @@ while not hecho:
     # Primero limpiamos pantalla. No dibujes por encima de esta linea
     # o todo lo que escribas sera borrado por este comando.
     pantalla.fill(BLANCO)
-    todo(pasto,0,0,16,20)
-    todo(pasto,0.5,0.5,15,19)
+    #todo(pasto,0,0,16,20)
+    #todo(pasto,0.5,0.5,15,19)
     # pantalla.blit(pasto, [x, y])
-    violeta.pintese(pantalla)
+    pintar_mapa(tmxdata,pantalla)
     
     
     # DIBUJEMOS ALGUNAS FIGURAS
     # DIBUJEMOS ALGUN TEXTO
-    # Seleccionamos la fuente, tamaño, negrita, acostada
-    def a(x,y):
-        x= str(x)
-        y= str(y)
-    fuente = pygame.font.SysFont('Calibri', 25, True, False) 
-    # Rendirazar, mi texto, suavizado, color
-    texto = fuente.render(str(violeta.x) + "   " + str(violeta.y), True, NEGRO) 
-    # Poner en pantalla el texto
-    pantalla.blit(texto, [0,0])
-
-    
+    if informacion:
+        pintar_texto()
+            
     # Avanza y actualiza la pantalla con lo que hemos dibujado.
     pygame.display.flip()  
     
@@ -225,7 +282,7 @@ while not hecho:
     
     
     # Limita a 20 fotogramas por segundo (frames per second)
-    reloj.tick(20)
+    reloj.tick(30)
 
 # Cierra la ventana.
 # Si olvidas poner esta linea el programa se 'colgara'.

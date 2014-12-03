@@ -107,7 +107,10 @@ while not hecho:
             if evento.key==pygame.K_LEFT:
                 velocidad_x=-2
             if evento.key==pygame.K_SPACE:
-                print(tmxdata)
+                for i in tmxdata.visible_layers:
+                    print(i)
+                    i.iter_data()
+                
         if evento.type==pygame.KEYUP:
             if evento.key==pygame.K_UP:
                 velocidad_y=0
