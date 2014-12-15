@@ -7,7 +7,7 @@ pygame puede ser descargado [aquí](https://github.com/ojosedo/programacion_mora
 y para instalar pytmx hay que hacerlo a través de la consola mediante el comando
 > python -m pip install pytmx
 
-no olvide añadir la carpeta de instalación de python al path de windows
+no olvide añadir la carpeta de instalación de python al [path de windows]()
 
 
 ##Licencia
