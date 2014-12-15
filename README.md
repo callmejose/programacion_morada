@@ -3,9 +3,9 @@ programacion_morada
 
 repositorio del semillero de programación de morada, 
 la versión 3.4.2 de python puede ser descargada desde [aquí](https://www.python.org/ftp/python/3.4.2/python-3.4.2.amd64.msi) ([32bits](https://www.python.org/ftp/python/3.4.2/python-3.4.2.msi)), 
-pygame puede ser descargado [aquí]() ([32bits]()) 
+pygame puede ser descargado [aquí](https://github.com/ojosedo/programacion_morada/blob/master/Pygame/pygame-1.9.2a0.win-amd64-py3.4.exe) ([32bits](https://github.com/ojosedo/programacion_morada/blob/master/Pygame/pygame-1.9.2a0.win32-py3.4.exe)) 
 y para instalar pytmx hay que hacerlo a través de la consola mediante el comando
-> python -m pip install pytmx
+> python -m pip install pytmx >
 no olvide añadir la carpeta de instalación de python al path de windows
 
 
