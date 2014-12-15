@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="left-down" width="40" height="22" tilewidth="32" tileheight="32">
+ <tileset firstgid="1" name="completa32" tilewidth="32" tileheight="32">
+  <image source="./imagenes/completa32.png" width="512" height="512"/>
+  <tile id="134">
+   <animation>
+    <frame tileid="36" duration="100"/>
+    <frame tileid="37" duration="100"/>
+    <frame tileid="38" duration="100"/>
+    <frame tileid="39" duration="100"/>
+    <frame tileid="38" duration="100"/>
+    <frame tileid="37" duration="100"/>
+    <frame tileid="36" duration="100"/>
+   </animation>
+  </tile>
+  <tile id="141">
+   <animation>
+    <frame tileid="141" duration="200"/>
+    <frame tileid="142" duration="100"/>
+    <frame tileid="143" duration="200"/>
+    <frame tileid="142" duration="100"/>
+   </animation>
+  </tile>
+ </tileset>
+ <layer name="obstaculos" width="40" height="22">
+  <data encoding="base64" compression="zlib">
+   eJztU0EOgDAIg/9/2pOJIYy1cwxMJCGiFmRtVRHR5skG0qPmys6z+3k1gsmuK77HYCy3q3qMcAzW663UDqmz/Lfr/E9eUS1mWAUws3kd9EU1rNoPrcXUEjxHdEXuUe2ruZlp3XGn0X5ReNqgnkDme/hTHLydnzF3935sMH0rPvgaf129iP6/d1hPRH0M1r73zvwnnxdK7wIA
+  </data>
+ </layer>
+ <layer name="agua" width="40" height="22">
+  <data encoding="base64" compression="zlib">
+   eJztkTEKADAMAn25b+/eoRkS6AUUhBsPtSTDS8ztR2WKR+VHy7b9qJx/e0zxeDE5v7fZ/i/14237UTn/9pjiUfnR4nSkB70F42U=
+  </data>
+ </layer>
+ <layer name="sombra_agua" width="40" height="22">
+  <data encoding="base64" compression="zlib">
+   eJztkTEKADAMAv25X+/eoRkS6AUUhBsPtSTDS8ztR2WKR+VHy7b9qJx/e0zxeDE5v7fZ/i/14237UTn/9pjiUfnR4nSkB6QB5TM=
+  </data>
+ </layer>
+ <layer name="pasto" width="40" height="22">
+  <data encoding="base64" compression="zlib">
+   eJzt0cEJACAQA0ELtP96/B/C+RAcMIFAnkt2DD8TbOVTt8LR8WmtfOpWOOL3T7+vPZ54Vn7abYWj49Na+dStcMRv/EpN7mQBB0J8GQ==
+  </data>
+ </layer>
+ <layer name="grama" width="40" height="22">
+  <data encoding="base64" compression="zlib">
+   eJztwQENAAAAwqD3T20ON6AAAAB4MA3AAAE=
+  </data>
+ </layer>
+ <layer name="block" width="40" height="22">
+  <data encoding="base64" compression="zlib">
+   eJztwQENAAAAwqD3T20ON6AAAAB4MA3AAAE=
+  </data>
+ </layer>
+ <layer name="borde" width="40" height="22">
+  <data encoding="base64" compression="zlib">
+   eJztwQENAAAAwqD3T20ON6AAAAB4MA3AAAE=
+  </data>
+ </layer>
+ <layer name="tronco" width="40" height="22">
+  <data encoding="base64" compression="zlib">
+   eJzlll0OABAMg13D/S/qXTBljXW+N7JI1/1EKfmoQAwSy9CRjVs/PetRwdhs3OTE8AN5c6dHvN57RURNp8xy6e+R2V+d1byLqNdzfka12e0JVIuF+l5QwMNjdh+owcz99M9k7WtkJ/9cWxYN9D8E4w==
+  </data>
+ </layer>
+ <layer name="personaje" width="40" height="22">
+  <data encoding="base64" compression="zlib">
+   eJztwQENAAAAwqD3T20ON6AAAAB4MA3AAAE=
+  </data>
+ </layer>
+ <layer name="copa" width="40" height="22">
+  <data encoding="base64" compression="zlib">
+   eJztwQENAAAAwqD3T20ON6AAAAB4MA3AAAE=
+  </data>
+ </layer>
+ <layer name="copa2" width="40" height="22">
+  <data encoding="base64" compression="zlib">
+   eJztwQENAAAAwqD3T20ON6AAAAB4MA3AAAE=
+  </data>
+ </layer>
+ <layer name="puerta" width="40" height="22">
+  <data encoding="base64" compression="zlib">
+   eJztzrENAAAEADB387wPJAaxtBc0AgD26jswyO8AABxp8UIA9g==
+  </data>
+ </layer>
+ <layer name="interactuar" width="40" height="22">
+  <data encoding="base64" compression="zlib">
+   eJztwQENAAAAwqD3T20ON6AAAAB4MA3AAAE=
+  </data>
+ </layer>
+</map>

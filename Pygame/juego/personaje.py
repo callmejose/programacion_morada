@@ -4,6 +4,7 @@
 # Importa la librería de funciones llamada 'pygame'
 import pygame
 import pytmx 
+import copy
 
 # Definimos algunos colores
 NEGRO = [ 0, 0, 0]
@@ -65,7 +66,6 @@ class SpriteSheet(object):
         return imagen
         
 hoja_completa = SpriteSheet("./imagenes/completa32.png")
-tmxdata = pytmx.load_pygame("./plantilla.tmx")        
 
 class mapa(object):
     """en esta clase se definira el mapa"""
@@ -74,6 +74,36 @@ class mapa(object):
     xmax = 32*ancho
     ymin = 0
     ymax = 32*alto
+    
+    #capas = 15
+    #personaje = 9
+    
+    #datos = pytmx.load_pygame("./jardin.tmx")
+    
+    def pintar_mapa(self,pantalla):
+        for capa in range(self.capas):
+            if capa == self.personaje:
+                for personaje in personajes:
+                    personaje.pintese(pantalla)
+            else:
+                for x in range(ancho):
+                    for y in range(alto):
+                        imagen = self.datos.get_tile_image(x, y, capa)
+                        if imagen==None:
+                            continue
+                        pantalla.blit(imagen, [x*32 , y*32])
+                        
+    def __init__(self, ruta, n_capas, c_personaje):
+        self.datos = pytmx.load_pygame(ruta)
+        self.capas = n_capas
+        self.personaje = c_personaje
+    
+    def cambiar_mapa(self, ruta, n_capas, c_personaje):
+        self.datos = pytmx.load_pygame(ruta)
+        self.capas = n_capas
+        self.personaje = c_personaje
+        print("cambie el mapa, ", self)
+
 
 class personaje(object):
     """este es tu personaje
@@ -131,7 +161,7 @@ class personaje(object):
         and self.x + self.velocidad_x + 16 <= mapa.xmax 
         and self.y + self.velocidad_y >= mapa.ymin 
         and self.y + self.velocidad_y + 16 <= mapa.ymax): #dentro del mapa
-            imagen = tmxdata.get_tile_image((self.x+self.velocidad_x)//32, (self.y+self.velocidad_y)//32, 0)
+            imagen = mapa.datos.get_tile_image((self.x+self.velocidad_x)//32, (self.y+self.velocidad_y)//32, 0)
             if imagen==None:
                 self.x += self.velocidad_x
                 self.y += self.velocidad_y
@@ -196,20 +226,12 @@ monstruo4.cambiar_velocidad("atras", 5)
 
 personajes = [violeta, monstruo1, monstruo2, monstruo3, monstruo4]
 
-entrada_cueva = mapa()
+mapa_actual = mapa("./jardin.tmx", 15, 9)
 
-def pintar_mapa(tmxdata,pantalla):
-    for capa in range(15):
-        if capa == 9:
-            for personaje in personajes:
-                personaje.pintese(pantalla)
-        else:
-            for x in range(ancho):
-                for y in range(alto):
-                    imagen = tmxdata.get_tile_image(x, y, capa)
-                    if imagen==None:
-                        continue
-                    pantalla.blit(imagen, [x*32 , y*32])
+jardin = mapa("./jardin.tmx", 15, 9)
+
+laberinto = mapa("./laberinto.tmx", 13, 8)
+
 
 def pintar_texto():
     # Seleccionamos la fuente, tamaño, negrita, acostada
@@ -238,6 +260,9 @@ while not hecho:
                 violeta.cambiar_velocidad("izquierda", 5)
             if evento.key==pygame.K_F3:
                 informacion = not informacion
+                mapa_actual = laberinto
+            if evento.key==pygame.K_F2:
+                mapa_actual = jardin
         if evento.type==pygame.KEYUP:
             if evento.key==pygame.K_UP:
                 violeta.pare("atras")
@@ -253,7 +278,7 @@ while not hecho:
     
     # TODA LA LÓGICA DEL JUEGO DEBERÍA IR DEBAJO DE ESTE COMENTARIO
     for personaje in personajes:
-        personaje.muevase(entrada_cueva)
+        personaje.muevase(mapa_actual)
     
     # TODA LA LÓGICA DEL JUEGO DEBERÍA IR ENCIMA DE ESTE COMENTARIO
 
@@ -267,7 +292,7 @@ while not hecho:
     #todo(pasto,0,0,16,20)
     #todo(pasto,0.5,0.5,15,19)
     # pantalla.blit(pasto, [x, y])
-    pintar_mapa(tmxdata,pantalla)
+    mapa_actual.pintar_mapa(pantalla)
     
     
     # DIBUJEMOS ALGUNAS FIGURAS

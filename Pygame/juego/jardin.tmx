@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="left-down" width="40" height="22" tilewidth="32" tileheight="32">
+ <tileset firstgid="1" name="completa32" tilewidth="32" tileheight="32">
+  <image source="imagenes/completa32.png" width="576" height="576"/>
+ </tileset>
+ <layer name="obstaculos" width="40" height="22">
+  <data encoding="base64" compression="zlib">
+   eJztVEEOwCAIw/9/epcdvEiBwiCLTUi8lFaULhFZb8l2nlZRVPU+8aO9vTx0H6u/7Hkz/r74DxF/kd24/rj3ZT1a+jL78Xd/Ua0J89N0Js/Ow88E2uGpuP44VP2nLGg73A2UL92w5HOGBtJH/Kos1viovye7u+sBJZUBbA==
+  </data>
+ </layer>
+ <layer name="agua" width="40" height="22">
+  <data encoding="base64" compression="zlib">
+   eJztzjEOACAIQ1HOynk4tKsDiYgoYPqTLp2eEJEoq5Jm6+Cr4lz5st3wxfWTr4Pxdpzs42mW/6WPjfP6TvP6rM7IdlwIIYRqNAC8OFah
+  </data>
+ </layer>
+ <layer name="sombra_agua" width="40" height="22">
+  <data encoding="base64" compression="zlib">
+   eJztzsEJADAMw0DvD9m5CwTyKdgJEuh/JamaU+psG3wpzsnnduP71yXfBiO+uz536T4iIvL2AJBZSuk=
+  </data>
+ </layer>
+ <layer name="pasto" width="40" height="22">
+  <data encoding="base64" compression="zlib">
+   eJzt01EKACAIA1Cv4v0v2X8YyMpp5cC/ao8oFRE1xhNr3+9T/Y68qWxr3/u+G4wne1ZrKvk8HQzfTkekDQl6FsOG9LD+XoYPMbJ90e+I7c32tK99lWbOAFfyVA0=
+  </data>
+ </layer>
+ <layer name="arena" width="40" height="22">
+  <data encoding="base64" compression="zlib">
+   eJzt1TsKwDAMg2HfLfQGCb3/TRoPgQ5FeUBtDfpBW4ZvcsyUUkpFVbIBILddfTUb8hGzbbjG2Kpg6H1Ut2Hjjv2P2qExul1nVqvO7GZOltzJ7PPbzep7/ytsPmTzPdZoIdg=
+  </data>
+ </layer>
+ <layer name="grama" width="40" height="22">
+  <data encoding="base64" compression="zlib">
+   eJzVlgEOwyAIRT2LV7D3P9u2pqSE8b8odWY/Makt0icVaCk5tfeo1xDJvCX81r7J6R+9Q7giaxCvN5cRsWe+EQtaF2HWe0YsWR2Fc+t3tcteqxkb736UIyO9B3aGMv5XyovtiLL5ydai/HhKEb82d45yn13kczQ/UE7PSNgQwwzfrzW695796hxi2hFrr5cy2x1CtZ/1w53fcVZPM+va06udM8+y8tjYP4RntzJn7PmSOYqpfsb+o9C9UTaP7zN0XbdMTNLbtd9MT/XqSi3f7Pb7ejG29it7veW08azmWnPa9f9Yh3p6AUDNHLw=
+  </data>
+ </layer>
+ <layer name="borde" width="40" height="22">
+  <data encoding="base64" compression="zlib">
+   eJztlVEOgCAIhj2peYTmEdSD50NujoEKlFuLb/tfNODPCJ3Tkaoysp5vFWHek1jPQKs0nxpPPZi/OKkr8U3hqw5EYeCP897U+WvjI7GPnZ0kvzb+L/4S83nIzB+cC1x/oxorwP9uxUdg1tB+457mtzh6Ru3sQcmM3OVP0kvcOC+swa0D6Wf4CG3vwfsC0u6XWTylJ3k7v2EYxhe5AC3bKjU=
+  </data>
+ </layer>
+ <layer name="tronco_der" width="40" height="22">
+  <data encoding="base64" compression="zlib">
+   eJzt0cEJACEMRNEUYg3pZd3+e9E9BMRFURNwDvMh4M1nFGHentsA8NLg3MYd/ut3NdodQsg2xthZWue9jZhEny8VbGPvy4LlNcs3ZkPzmaf1eY1R/6ALs3tH5DtXfBFzaiyR1hGI
+  </data>
+ </layer>
+ <layer name="tronco_izq" width="40" height="22">
+  <data encoding="base64" compression="zlib">
+   eJztzjEBAAAIA6BltH8YM+zyEBKQAAAAjbkO8NYC2XgAUw==
+  </data>
+ </layer>
+ <layer name="personaje" width="40" height="22">
+  <data encoding="base64" compression="zlib">
+   eJztwQENAAAAwqD3T20ON6AAAAB4MA3AAAE=
+  </data>
+ </layer>
+ <layer name="montaña" width="40" height="22">
+  <data encoding="base64" compression="zlib">
+   eJzt0iEOADAIQ9HesNz/NPMTG1kFXdKfoBA8QQEo+Fbw9zkXn9YP/+fucy4+rfyflrOP04BL8WnF9x4Rn3p/ysdtTvspU3cWrwoP0A==
+  </data>
+ </layer>
+ <layer name="copa_der" width="40" height="22">
+  <data encoding="base64" compression="zlib">
+   eJzt0csJACAMA9Bupt1/KS8etFTwi1HyIHiyhFYEX7hd4APcIRERFs1Bxn5rXrsxYl9tvAi8fa3uMG6YUbKz1GRElPoOp29hu/bE+49stl8CmP0L6g==
+  </data>
+ </layer>
+ <layer name="copa_izq" width="40" height="22">
+  <data encoding="base64" compression="zlib">
+   eJztzlsKACAIRFGXNvtfVb8h/vQwJe4BMQKHMQMAAK+pugDSqbrAAlnfvrKe3eS2f5/m3qAgL/pbyZt3Jm2Mv//VAIaSB4E=
+  </data>
+ </layer>
+ <layer name="risco" width="40" height="22">
+  <data encoding="base64" compression="zlib">
+   eJxjYICAEjIxMsAmRq7Z1ALEuGkwAFr5fxSMglGACUB5rHgQ2A/Dgx0MJbeOglEwCkbBKBgFwx0AAPFsFUY=
+  </data>
+ </layer>
+ <layer name="puerta" width="40" height="22">
+  <data encoding="base64" compression="zlib">
+   eJzt1EENAEAIBLE1i5hzzRMHXEJaBfOaZFQA7vM6ANj3fgcc0Zy7AVQ=
+  </data>
+ </layer>
+</map>
