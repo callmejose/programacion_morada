@@ -10,9 +10,9 @@ operativo windows 7.
 
 para añadir python3.4 al path haz lo siguiente:
 
-- presiona de manera sostenida Win y presiona Pause.
+- presiona de manera sostenida `Win` y presiona `Pause`.
 - Click en Configuración avanzada del sistema.
 - Click en Variables de entorno.
-- Añade al final de la variable Path ;C:\python34. (o la carpeta donde hayas instalado python)
+- Añade `;C:\python34` al final de la variable `Path`. (o la carpeta donde hayas instalado python)
 - Reinicia la linea de comandos.
 
